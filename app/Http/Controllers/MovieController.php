@@ -12,7 +12,13 @@ class MovieController extends Controller
     {
         $movies = Movie::all();
  
-        return inertia('Dashboard', ['movies' => $movies]);
+        //redirect using inertia and use flash
+        return inertia('Dashboard', [
+                'movies' => $movies, 
+                'flash' => [
+                        'success' => 'Welcome, '. Auth::user()->name
+                    ]
+            ]);
     }
 
     public function create()

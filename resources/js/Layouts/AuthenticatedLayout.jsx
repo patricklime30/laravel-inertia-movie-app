@@ -8,8 +8,8 @@ import { useState } from 'react';
 
 export default function AuthenticatedLayout({ header, children }) {
     const user = usePage().props.auth.user;
-    const { flash } = usePage().props
-
+    const { flash } = usePage().props;
+    
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
 
@@ -183,7 +183,7 @@ export default function AuthenticatedLayout({ header, children }) {
                 {flash?.error && (
                     <FlashMessage message={flash.error} type="error" />
                 )}
-                
+
                 {children}
 
             </main>
